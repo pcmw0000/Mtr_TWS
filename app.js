@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const app = express();
 
-// 配置静态文件目录
+// static
 app.use(express.static('public'));
 app.use(express.json());
 
@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use('/api/users', userRoutes);
 
-// 如果没有其他路由处理请求，则默认显示 index.html
+//index.html
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
